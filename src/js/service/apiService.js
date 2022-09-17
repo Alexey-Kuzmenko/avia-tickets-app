@@ -31,9 +31,9 @@ class Api {
         }
     }
 
-    prices(parms) {
+    // prices(parms) {
 
-    }
+    // }
 }
 
 const api = new Api(config);

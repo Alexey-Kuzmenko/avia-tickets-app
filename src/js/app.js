@@ -1,11 +1,12 @@
 // * styles
 import '../scss/style.scss'
-import api from "./service/apiService";
+import locations from './store/locations'
 
-api.countries()
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
 
-api.cities()
-    .then(res => console.log(res))
+locations.init()
+    .then(res => {
+        // ! testing
+        console.log(res)
+        console.table(locations.getCitiesByCountryCode('UA'))
+    })
     .catch(err => console.log(err))
