@@ -1,10 +1,14 @@
 // * import bootstrap styles
 @import '~bootstrap/scss/bootstrap';
+@import 'layout/page';
+@import 'layout/header';
+@import 'layout/nav';
+@import 'modules/form'
 
 // ! test
-$bg-color: #fff;
+// $bg-color: #fff;
 
-body {
-  background: $bg-color;
-  transition: all 0.4s ease;
-}
+// body {
+//   background: $bg-color;
+//   transition: all 0.4s ease;
+// }

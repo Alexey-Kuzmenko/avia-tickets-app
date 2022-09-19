@@ -1,5 +1,8 @@
 // * styles
 import '../scss/style.scss'
+
+// * modules
+import './plugins'
 import locations from './store/locations'
 
 

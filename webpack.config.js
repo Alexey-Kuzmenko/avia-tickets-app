@@ -47,6 +47,10 @@ module.exports = {
         port: '9000',
         hot: isDev,
     },
+    watchOptions: {
+        ignored: /node_modules/,
+        poll: true
+    },
     module: {
         rules: [
             {

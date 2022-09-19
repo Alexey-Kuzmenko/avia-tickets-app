@@ -1,0 +1,14 @@
+.navbar {
+
+    &-brand {
+        margin: 0;
+    }
+
+    .container-fluid {
+        @media (max-width: 300px) {
+            row-gap: 10px;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+}
