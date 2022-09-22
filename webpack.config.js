@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
-
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
@@ -46,7 +45,7 @@ module.exports = {
     },
     devServer: {
         port: '9000',
-        hot: isDev
+        hot: isDev,
     },
     module: {
         rules: [
