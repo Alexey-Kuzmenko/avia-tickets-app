@@ -5,10 +5,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Avia Tickets</title>
 </head>
 
 <body>
+    <div class="page">
+        <header class="header bg-primary">
+
+            <div class="container-xl">
+
+                <nav class="navbar navbar-dark bg-primary">
+                    <div class="container-fluid">
+                        <a href="#" class="navbar-brand">
+                            <i class="bi bi-airplane me-2 d-none d-sm-inline"></i>
+                            Avia Tickets
+                        </a>
+                        <form class="d-flex" id="currency-picker">
+                            <select class="form-select form-select-sm" aria-label="Currency picker">
+                                <option selected value="USD">US Dollar &dollar;</option>
+                                <option value="EUR">Euro &euro;</option>
+                            </select>
+                        </form> <!-- * #currency-picker -->
+                    </div>
+                </nav> <!-- * .navbar -->
+
+            </div> <!-- * .container-xl -->
+
+        </header> <!-- ! .header -->
+
+        <main class="main">
+            <div class="container-xl">
+                <div class="card mt-5">
+
+                    <h2 class="card-header text-center">Find tickets</h2>
+
+                    <div class="card-body">
+                        <form id="form">
+                            <div class="mb-3 mt-3">
+                                <label for="origin" class="form-label">Origin</label>
+                                <input type="text" class="form-control" id="origin" list="datalistOptions"
+                                    placeholder="From" autocomplete="off" name="origin">
+                            </div>
+                            <div class="mb-3">
+                                <label for="destination" class="form-label">Destination</label>
+                                <input type="text" class="form-control" id="destination" placeholder="To"
+                                    name="destination">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date-picker" class="form-label">Depart date</label>
+                                <input type="date" class="form-control" id="date-picker">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date-picker" class="form-label">Return date</label>
+                                <input type="date" class="form-control" id="date-picker">
+                            </div>
+                            <div class="d-flex align-content-center justify-content-between">
+                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-danger">Reset</button>
+                            </div>
+                        </form> <!-- * .form -->
+                    </div>
+
+                </div> <!-- * .card -->
+
+                <div class="grid-container"></div> <!-- * .grid-container -->
+
+            </div> <!-- * .container-xl -->
+        </main> <!-- ! .main -->
+
+    </div> <!-- ! .page -->
 </body>
 
 </html>

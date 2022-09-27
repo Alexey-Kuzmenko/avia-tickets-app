@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -46,6 +47,10 @@ module.exports = {
     devServer: {
         port: '9000',
         hot: isDev,
+    },
+    watchOptions: {
+        ignored: /node_modules/,
+        poll: true
     },
     module: {
         rules: [
@@ -109,5 +114,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: createFileName('style', 'css')
         }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "./favicon.ico",
+                    to: "../dist",
+                }
+            ]
+        })
     ]
 }

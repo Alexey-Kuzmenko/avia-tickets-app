@@ -1,10 +1,13 @@
+// * reset default styles
+@import 'base/reset';
+
 // * import bootstrap styles
 @import '~bootstrap/scss/bootstrap';
 
-// ! test
-$bg-color: #fff;
+// * layout
+@import 'layout/page';
+@import 'layout/header';
+@import 'layout/nav';
 
-body {
-  background: $bg-color;
-  transition: all 0.4s ease;
-}
+// * modules
+@import 'modules/form'

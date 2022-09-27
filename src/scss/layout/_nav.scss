@@ -1,0 +1,21 @@
+.navbar {
+
+    &-brand {
+        margin: 0;
+    }
+
+    .container-fluid {
+        @media (max-width: 300px) {
+            row-gap: 10px;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    .form-select {
+        @include media-breakpoint-up(sm) {
+            padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+            font-size: 1rem;
+        }
+    }
+}
