@@ -3,30 +3,19 @@ import * as bootstrap from 'bootstrap';
 // * autocomplete plugin for bootstrap 5
 import { Autocomplete } from './autocomplete'
 
-const originInput = document.querySelector('#origin')
-const destinationInput = document.querySelector('#destination')
-
-
-const ac = new Autocomplete(originInput, {
+const acInputOptions = {
     data: null,
     maximumItems: 5,
     treshold: 1,
+    // ! testing
     onSelectItem: ({ label, value }) => {
         console.log("user selected:", label, value);
     }
-});
+}
 
-ac.setData([
-    { label: 'Kyiv', value: 'kyiv' },
-    { label: 'Lviv', value: 'lviv' },
-    { label: 'Kharkiv', value: 'kharkiv' },
-])
+function initAutocompleteInput(input) {
+    const acInput = new Autocomplete(input, acInputOptions)
+    return acInput
+}
 
-
-// ! purpose
-// function setAutocompleteData(data) {
-    
-// }
-// ac.setData(setAutocompleteData)
-
-// export { setAutocompleteData }
+export { initAutocompleteInput }
