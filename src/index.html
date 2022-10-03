@@ -22,10 +22,11 @@
                             <i class="bi bi-airplane me-2 d-none d-sm-inline"></i>
                             Avia Tickets
                         </a>
-                        <form class="d-flex" id="currency-picker">
-                            <select class="form-select form-select-sm" aria-label="Currency picker">
-                                <option selected value="USD">US Dollar &dollar;</option>
-                                <option value="EUR">Euro &euro;</option>
+                        <form class="d-flex" id="currency-select">
+                            <select class="form-select form-select-sm" id="currency-picker" aria-label="Currency picker"
+                                autocomplete="off">
+                                <option selected="selected" value="USD">&dollar; US Dollar</option>
+                                <option value="EUR">&euro; Euro</option>
                             </select>
                         </form> <!-- * #currency-picker -->
                     </div>
@@ -42,28 +43,32 @@
                     <h2 class="card-header text-center">Find tickets</h2>
 
                     <div class="card-body">
-                        <form id="form">
+                        <form id="search-form" name="search-form">
                             <div class="mb-3 mt-3">
                                 <label for="origin" class="form-label">Origin</label>
-                                <input type="text" class="form-control" id="origin" list="datalistOptions"
-                                    placeholder="From" autocomplete="off" name="origin">
+                                <input type="text" class="form-control" id="origin" placeholder="From"
+                                    autocomplete="off" name="origin">
                             </div>
                             <div class="mb-3">
                                 <label for="destination" class="form-label">Destination</label>
-                                <input type="text" class="form-control" id="destination" placeholder="To"
-                                    name="destination">
+                                <input type="text" class="form-control" id="destination" autocomplete="off"
+                                    placeholder="To" name="destination">
                             </div>
                             <div class="mb-3">
-                                <label for="date-picker" class="form-label">Depart date</label>
-                                <input type="date" class="form-control" id="date-picker">
+                                <label for="depart-date-picker" class="form-label">Depart date</label>
+                                <input type="date" class="form-control" id="depart-date-picker"
+                                    name="depart-date-picker">
                             </div>
                             <div class="mb-3">
-                                <label for="date-picker" class="form-label">Return date</label>
-                                <input type="date" class="form-control" id="date-picker">
+                                <label for="return-date-picker" class="form-label">Return date</label>
+                                <input type="date" class="form-control" id="return-date-picker"
+                                    name="return-date-picker">
                             </div>
                             <div class="d-flex align-content-center justify-content-between">
-                                <button type="submit" class="btn btn-success">Search</button>
-                                <button type="submit" class="btn btn-danger">Reset</button>
+                                <button type="submit" class="btn btn-success" id="search-btn"><i
+                                        class="bi bi-search"></i> Search</button>
+                                <button type="reset" class="btn btn-danger" id="reset-btn"><i
+                                        class="bi bi-x-circle"></i> Reset</button>
                             </div>
                         </form> <!-- * .form -->
                     </div>
