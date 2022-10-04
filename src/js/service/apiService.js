@@ -4,7 +4,7 @@ import config from "../config/apiConfig";
 /* 
     * /countries - arr for countries
     * /cities - arr of cities
-    * / prices/cheap - arr of airlines
+    * /prices/cheap - arr of airlines
 */
 class Api {
     constructor(config) {
@@ -36,6 +36,16 @@ class Api {
             const response = await axios.get(`${this.url}/prices/cheap`, {
                 params,
             })
+            return response.data
+        } catch (err) {
+            console.log(err);
+            return Promise.reject(err)
+        }
+    }
+
+    async airlines() {
+        try {
+            const response = await axios.get(`${this.url}/airlines`)
             return response.data
         } catch (err) {
             console.log(err);

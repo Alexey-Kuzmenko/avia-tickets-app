@@ -8,6 +8,9 @@
 @import 'layout/page';
 @import 'layout/header';
 @import 'layout/nav';
+@import 'layout/grid-container';
 
 // * modules
-@import 'modules/form'
+@import 'modules/form';
+@import 'modules/tickest-card';
+@import 'modules/alerts'

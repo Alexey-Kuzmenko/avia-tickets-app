@@ -1,0 +1,28 @@
+.tickets-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .add-to-favorite-btn {
+        position: absolute;
+    }
+
+    & img {
+        max-width: 150px;
+        width: 100%;
+    }
+
+    .card-footer,
+    .card-body {
+        width: 100%;
+    }
+
+    .card-footer,
+    .card-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
