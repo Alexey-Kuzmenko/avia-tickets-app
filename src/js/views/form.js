@@ -21,19 +21,32 @@ class FormUI {
     }
 
     get originValue() {
-        return this.origin.value
+        // return this.origin.value
+        return FormUI.checkInputData(this.origin.value)
     }
 
     get destinationValue() {
-        return this.destination.value
+        // return this.destination.value
+        return FormUI.checkInputData(this.destination.value)
     }
 
     get departDateValue() {
-        return this.departDate.value
+        // return this.departDate.value
+        return FormUI.checkInputData(this.departDate.value)
     }
 
     get returnDateValue() {
-        return this.returnDate.value
+        // return this.returnDate.value
+        return FormUI.checkInputData(this.returnDate.value)
+    }
+
+    static checkInputData(inputValue) {
+        if (inputValue === '') {
+            alert('Please fill in all inputs')
+            return
+        } else {
+            return inputValue
+        }
     }
 
 }
