@@ -8,6 +8,7 @@ import formUi from './views/form'
 import currencyUi from './views/currency'
 import { changeDateFormat } from './helpers/date'
 import ticketsUi from './views/tickets'
+import alertUi from './views/alerts'
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = formUi.form
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('reset', () => {
         ticketsUi.clearContainer()
+        alertUi.clearAlertContainer()
     })
 
     // ! Handlers

@@ -1,7 +1,8 @@
 import * as Autocomplete from '../plugins/bootstrap'
+import alertUi from './alerts'
 
 class FormUI {
-    constructor(initAutocompleteInput) {
+    constructor(initAutocompleteInput, alert) {
         this._form = document.forms['search-form']
         this.origin = document.querySelector('#origin')
         this.destination = document.querySelector('#destination')
@@ -38,7 +39,7 @@ class FormUI {
 
     static checkInputData(inputValue) {
         if (!inputValue.length) {
-            alert('Please fill in all inputs')
+            alertUi.renderAlert()
             return
         } else {
             return inputValue
