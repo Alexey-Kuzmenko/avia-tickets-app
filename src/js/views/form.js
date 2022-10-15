@@ -2,7 +2,7 @@ import * as Autocomplete from '../plugins/bootstrap'
 import alertUi from './alerts'
 
 class FormUI {
-    constructor(initAutocompleteInput, alert) {
+    constructor(initAutocompleteInput) {
         this._form = document.forms['search-form']
         this.origin = document.querySelector('#origin')
         this.destination = document.querySelector('#destination')
