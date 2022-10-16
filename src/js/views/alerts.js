@@ -3,8 +3,8 @@ class AlertUI {
         this.alertContainer = document.querySelector('.alert-container')
     }
 
-    renderAlert(type) {
-        const alert = AlertUI.alertTemplate(type)
+    renderAlert() {
+        const alert = AlertUI.alertTemplate()
         this.alertContainer.insertAdjacentHTML('afterbegin', alert)
     }
 
