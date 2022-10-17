@@ -1,0 +1,32 @@
+.tickets-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+
+    & img {
+        max-width: 150px;
+        width: 100%;
+    }
+
+    .card-footer,
+    .card-body {
+        width: 100%;
+    }
+
+    .card-footer,
+    .card-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &:hover {
+            -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+    }
+}

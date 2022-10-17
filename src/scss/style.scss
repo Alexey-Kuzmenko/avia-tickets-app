@@ -1,13 +1,19 @@
+// * reset default styles
+@import 'base/reset';
+
 // * import bootstrap styles
 @import '~bootstrap/scss/bootstrap';
 
-$bg-color: red;
+// * layout
+@import 'layout/page';
+@import 'layout/header';
+@import 'layout/nav';
+@import 'layout/grid-container';
 
-body {
-  background: $bg-color;
-  transition: all 0.4s ease;
-}
+// * modules
+@import 'modules/form';
+@import 'modules/tickets-card';
+@import 'modules/alerts';
 
-div {
-  background: #000;
-}
+// * animations
+@import 'animations/animations'
