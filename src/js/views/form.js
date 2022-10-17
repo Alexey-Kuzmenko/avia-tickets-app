@@ -1,4 +1,5 @@
 import * as Autocomplete from '../plugins/bootstrap'
+import alertUi from './alerts'
 
 class FormUI {
     constructor(initAutocompleteInput) {
@@ -21,19 +22,28 @@ class FormUI {
     }
 
     get originValue() {
-        return this.origin.value
+        return FormUI.checkInputData(this.origin.value)
     }
 
     get destinationValue() {
-        return this.destination.value
+        return FormUI.checkInputData(this.destination.value)
     }
 
     get departDateValue() {
-        return this.departDate.value
+        return FormUI.checkInputData(this.departDate.value)
     }
 
     get returnDateValue() {
-        return this.returnDate.value
+        return FormUI.checkInputData(this.returnDate.value)
+    }
+
+    static checkInputData(inputValue) {
+        if (!inputValue.length) {
+            alertUi.renderAlert()
+            return
+        } else {
+            return inputValue
+        }
     }
 
 }
