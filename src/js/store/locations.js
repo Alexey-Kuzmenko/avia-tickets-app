@@ -1,5 +1,6 @@
 import api from "../service/apiService";
 import { formatDate } from "../helpers/date";
+import id from "../helpers/id";
 
 class Locations {
     constructor(api, helpers) {
@@ -10,6 +11,7 @@ class Locations {
         this.airlines = null
         this.lastSearch = null
         this.formatDate = helpers.formatDate
+        this.ticketId = helpers.id.bind(id)
     }
 
     async init() {
@@ -110,14 +112,15 @@ class Locations {
                 airline_logo: this.getAirlineLogoByCode(ticket.airline),
                 airline_name: this.getAirlineNameByCode(ticket.airline),
                 departure_at: this.formatDate(ticket.departure_at, 'dd MMM yyyy hh:mm'),
-                return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm')
+                return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm'),
+                id: this.ticketId()
             }
         })
     }
 
 }
 
-const locations = new Locations(api, { formatDate });
+const locations = new Locations(api, { formatDate, id: id.createID });
 
 export default locations
 

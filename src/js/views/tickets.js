@@ -45,7 +45,7 @@ class TicketsUI {
 
     static ticketTemplate(ticket, currency) {
         return `
-            <div class="card tickets-card">
+            <div class="card tickets-card" data-ticket-id="${ticket.id}">
                         <img src="${ticket.airline_logo}" class="card-img-top" alt="Airline logo">
                         <div class="card-body">
                             <h5 class="card-title text-center">${ticket.airline_name}</h5>
