@@ -9,6 +9,9 @@ import currencyUi from './views/currency'
 import { changeDateFormat } from './helpers/date'
 import ticketsUi from './views/tickets'
 import alertUi from './views/alerts'
+// ! testing
+import favorites from './store/favorites'
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = formUi.form
@@ -31,6 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
         formUi.setAcInputData(locations.shortCitiesList)
     }
 
+    // ! testing 
+    function onTicketClick(e) {
+        if (e.target.classList.contains('add-to-favorites-btn') || e.target.classList.contains('bi-heart')) {
+            e.currentTarget.classList.toggle('border-info')
+            const ticketId = e.currentTarget.dataset.ticketId
+            const ticketObj = locations.lastSearch.find(ticket => ticket.id === ticketId)
+            // ! testing
+            console.log(ticketObj);
+            favorites.setfavoriteTicket(ticketObj)
+        }
+    }
+
     async function onFormSubmit() {
         const origin = locations.getCityCodeByName(formUi.originValue)
         const destination = locations.getCityCodeByName(formUi.destinationValue)
@@ -47,6 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
         ticketsUi.renderTickest(locations.lastSearch)
+
+        // ? potential solution
+        const ticketsCards = document.querySelectorAll('.tickets-card')
+        setAddEventListener(ticketsCards)
+
+        function setAddEventListener(arrOfNodes) {
+            if (!arrOfNodes.length) {
+                console.error('Array of tickets is empty');
+                return
+            } else {
+                [...arrOfNodes].forEach(ticket => {
+                    ticket.addEventListener('click', onTicketClick)
+                })
+            }
+        }
+
     }
 
 }, false)

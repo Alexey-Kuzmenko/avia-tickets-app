@@ -4,11 +4,15 @@
         margin: 0;
     }
 
+    .navbar-toggler {
+        outline: none;
+        box-shadow: none;
+    }
+
     .container-fluid {
         @media (max-width: 300px) {
-            row-gap: 10px;
-            justify-content: center;
-            flex-direction: column;
+            justify-content: space-between;
+            flex-direction: row;
         }
     }
 
@@ -16,6 +20,14 @@
         @include media-breakpoint-up(sm) {
             padding: 0.375rem 2.25rem 0.375rem 0.75rem;
             font-size: 1rem;
+        }
+    }
+
+    .navbar-collapse {
+        @include media-breakpoint-up(lg) {
+            & {
+                margin-left: 1rem;
+            }
         }
     }
 }

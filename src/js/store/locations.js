@@ -117,7 +117,6 @@ class Locations {
             }
         })
     }
-
 }
 
 const locations = new Locations(api, { formatDate, id: id.createID });

@@ -26,6 +26,10 @@ class TicketsUI {
         }
     }
 
+    getContainer() {
+        return this.container
+    }
+
     clearContainer() {
         this.container.innerHTML = ''
     }

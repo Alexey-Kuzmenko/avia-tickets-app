@@ -1,0 +1,38 @@
+.nav-dropdown-menu {
+
+    @include media-breakpoint-up(lg) {
+        min-width: 350px;
+    }
+
+
+    .nav-dropdown-item {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 100%;
+
+        &-content {
+            @media (max-width: 320px) {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+                column-gap: 5px;
+            }
+        }
+
+        &-text {
+            display: inline;
+            padding: 0;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-remove-btn {
+            outline: none;
+            border: none;
+        }
+    }
+}
