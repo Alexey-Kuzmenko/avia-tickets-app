@@ -4,7 +4,7 @@
         margin: 0;
     }
 
-    .navbar-toggler {
+    &-toggler {
         outline: none;
         box-shadow: none;
     }
@@ -23,11 +23,32 @@
         }
     }
 
-    .navbar-collapse {
+    &-collapse {
         @include media-breakpoint-up(lg) {
             & {
                 margin-left: 1rem;
             }
+        }
+    }
+
+    &-nav {
+        display: block;
+
+        @include media-breakpoint-up(lg) {
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.3s ease;
+
+            &-hidden {
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.2s ease;
+            }
+
+        }
+
+        &-hidden {
+            display: none;
         }
     }
 }
