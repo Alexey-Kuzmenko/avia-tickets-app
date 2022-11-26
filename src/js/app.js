@@ -10,10 +10,11 @@ import { changeDateFormat } from './helpers/date';
 import ticketsUi from './views/tickets';
 import alertUi from './views/alerts';
 import favorites from './store/favorites';
+import dropdownUi from './views/dropdown';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = formUi.form;
-    const dropdownMenu = favorites._dropdownMenu;
+    const dropdownMenu = dropdownUi._dropdownMenu;
     initApp();
 
     // * Events
@@ -44,14 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const ticketObj = locations.lastSearch.find((ticket) => ticket.id === ticketId);
 
             //  ? maybe dropdown should init when inited all app
-            favorites.initDropdownMenu();
+            dropdownUi.initDropdownMenu();
             favorites.setfavoriteTicket(ticketObj);
         }
     }
 
     // ! dropdown menu handler
     function onDropdownClick() {
-        favorites.renderDropdownMenuItems(favorites._favoriteTickets);
+        dropdownUi.renderDropdownMenuItems(favorites._favoriteTickets);
         console.log(favorites.favoriteTickets);
 
         const dropdownItems = document.querySelectorAll('.dropdown-item-body');
