@@ -1,0 +1,19 @@
+{   
+  "env": {
+    "es6": true,
+    "browser": true
+  },  
+  "extends": ["airbnb/base"],
+  "rules" : {
+        "no-console":"error",
+        "indent": ["error", 4, {"outerIIFEBody": 0} ],
+        "linebreak-style": ["error", "windows"],
+        "prefer-destructuring":"off",
+        "no-use-before-define":"off",
+        "semi":"warn",
+        "camelcase": "off",
+        "no-underscore-dangle": "off",
+        "class-methods-use-this":"off",
+        "no-param-reassign":"off"
+    }
+}

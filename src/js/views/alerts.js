@@ -1,15 +1,15 @@
 class AlertUI {
     constructor() {
-        this.alertContainer = document.querySelector('.alert-container')
+        this.alertContainer = document.querySelector('.alert-container');
     }
 
     renderAlert() {
-        const alert = AlertUI.alertTemplate()
-        this.alertContainer.insertAdjacentHTML('afterbegin', alert)
+        const alert = AlertUI.alertTemplate();
+        this.alertContainer.insertAdjacentHTML('afterbegin', alert);
     }
 
     clearAlertContainer() {
-        this.alertContainer.innerHTML = ''
+        this.alertContainer.innerHTML = '';
     }
 
     static alertTemplate() {
@@ -18,9 +18,9 @@ class AlertUI {
                 <strong><i class="bi bi-exclamation-triangle-fill"></i> Be attention!</strong> All fields must be filled!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        `
+        `;
     }
 }
 
 const alertUi = new AlertUI();
-export default alertUi
+export default alertUi;

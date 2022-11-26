@@ -1,42 +1,40 @@
-import currencyUi from "./currency"
+import currencyUi from './currency';
 
 class TicketsUI {
     constructor(getCurrencySymbol) {
-        this.container = document.querySelector('.grid-container')
-        this.currencySymbol = getCurrencySymbol.bind(currencyUi)
+        this.container = document.querySelector('.grid-container');
+        this.currencySymbol = getCurrencySymbol.bind(currencyUi);
     }
 
     renderTickest(tickets) {
-        this.clearContainer()
+        this.clearContainer();
 
         if (tickets.length === 0) {
-            this.showEmptyMessage()
-            return
+            this.showEmptyMessage();
         } else {
+            let fragment = '';
+            const currency = this.currencySymbol();
 
-            let fragment = ''
-            let currency = this.currencySymbol()
-
-            tickets.forEach(ticket => {
-                const tktTemplate = TicketsUI.ticketTemplate(ticket, currency)
-                fragment += tktTemplate
+            tickets.forEach((ticket) => {
+                const tktTemplate = TicketsUI.ticketTemplate(ticket, currency);
+                fragment += tktTemplate;
             });
 
-            this.container.insertAdjacentHTML('afterbegin', fragment)
+            this.container.insertAdjacentHTML('afterbegin', fragment);
         }
     }
 
     getContainer() {
-        return this.container
+        return this.container;
     }
 
     clearContainer() {
-        this.container.innerHTML = ''
+        this.container.innerHTML = '';
     }
 
     showEmptyMessage() {
-        const msgTemplate = TicketsUI.emptyMsgTemplate()
-        this.container.insertAdjacentHTML('afterbegin', msgTemplate)
+        const msgTemplate = TicketsUI.emptyMsgTemplate();
+        this.container.insertAdjacentHTML('afterbegin', msgTemplate);
     }
 
     static emptyMsgTemplate() {
@@ -44,7 +42,7 @@ class TicketsUI {
         <div class="alert alert-warning text-center" role="alert">
             Sorry, we don't find any tickets for your request <i class="bi bi-emoji-frown"></i>
         </div>
-        `
+        `;
     }
 
     static ticketTemplate(ticket, currency) {
@@ -81,10 +79,10 @@ class TicketsUI {
                 </div>
             </div>
         </div>
-        `
+        `;
     }
 }
 
 const ticketsUi = new TicketsUI(currencyUi.getCurrencySymbol);
 
-export default ticketsUi
+export default ticketsUi;
