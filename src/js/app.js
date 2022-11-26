@@ -9,12 +9,11 @@ import currencyUi from './views/currency'
 import { changeDateFormat } from './helpers/date'
 import ticketsUi from './views/tickets'
 import alertUi from './views/alerts'
-// ! testing
 import favorites from './store/favorites'
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = formUi.form
+    const dropdownMenu = favorites._dropdownMenu
     initApp()
 
     // * Events
@@ -28,21 +27,47 @@ document.addEventListener('DOMContentLoaded', () => {
         alertUi.clearAlertContainer()
     })
 
+    dropdownMenu.addEventListener('click', onDropdownClick, false)
+
     // ! Handlers
     async function initApp() {
         await locations.init()
         formUi.setAcInputData(locations.shortCitiesList)
     }
 
-    // ! testing 
     function onTicketClick(e) {
         if (e.target.classList.contains('add-to-favorites-btn') || e.target.classList.contains('bi-heart')) {
+            e.target.classList.toggle('add-to-favorites-btn--active')
             e.currentTarget.classList.toggle('border-info')
             const ticketId = e.currentTarget.dataset.ticketId
             const ticketObj = locations.lastSearch.find(ticket => ticket.id === ticketId)
-            // ! testing
-            console.log(ticketObj);
+
+            //  ? maybe dropdown should init when inited all app
+            favorites.initDropdownMenu()
             favorites.setfavoriteTicket(ticketObj)
+        }
+    }
+
+    // ! dropdown menu handler 
+    function onDropdownClick() {
+        favorites.renderDropdownMenuItems(favorites._favoriteTickets)
+        console.log(favorites.favoriteTickets);
+
+        const dropdownItems = document.querySelectorAll('.dropdown-item-body');
+
+        // ? potential solution
+        [...dropdownItems].forEach(dropdownItem => {
+            dropdownItem.addEventListener('click', onDropdownItemClick, false)
+        });
+    }
+
+    function onDropdownItemClick(e) {
+        e.stopPropagation()
+        if (e.target.classList.contains('btn') || e.target.classList.contains('bi-trash3')) {
+            e.currentTarget.remove()
+            const ticketId = e.currentTarget.dataset.ticketId
+            const ticketObj = favorites._favoriteTickets.find(ticket => ticket.id === ticketId)
+            favorites.removefavoriteTicket(ticketObj)
         }
     }
 

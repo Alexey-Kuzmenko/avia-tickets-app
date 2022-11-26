@@ -36,6 +36,10 @@
 
             &--active {
                 background-color: $red;
+
+                & > .bi-heart {
+                    color: $white;
+                }
             }
 
             @include media-breakpoint-up(lg) {
@@ -53,10 +57,6 @@
 
         .bi-heart {
             transition: color 0.3s ease;
-
-            &--white {
-                color: $white;
-            }
         }
 
     }
