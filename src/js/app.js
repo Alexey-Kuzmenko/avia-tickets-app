@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function onTicketClick(e) {
         if (e.target.classList.contains('add-to-favorites-btn') || e.target.classList.contains('bi-heart')) {
-            e.target.classList.toggle('add-to-favorites-btn--active')
+            const addToFavoritesBtn = e.currentTarget.querySelector('.add-to-favorites-btn')
+            addToFavoritesBtn.classList.toggle('add-to-favorites-btn--active')
             e.currentTarget.classList.toggle('border-info')
             const ticketId = e.currentTarget.dataset.ticketId
             const ticketObj = locations.lastSearch.find(ticket => ticket.id === ticketId)
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ! dropdown menu handler 
     function onDropdownClick() {
         favorites.renderDropdownMenuItems(favorites._favoriteTickets)
+        // ! testing
         console.log(favorites.favoriteTickets);
 
         const dropdownItems = document.querySelectorAll('.dropdown-item-body');

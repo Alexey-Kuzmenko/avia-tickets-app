@@ -27,7 +27,7 @@ class Favorites {
     }
 
     initDropdownMenu() {
-        if (this._favoriteTickets.length >= 1) {
+        if (this._favoriteTickets.length >= 0) {
             this._dropdownMenu.classList.remove('navbar-nav--hidden')
         } else {
             return
