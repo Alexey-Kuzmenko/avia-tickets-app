@@ -36,7 +36,6 @@ class Locations {
     */
 
     createShortCitiesList(cities) {
-        // ? potential solution
         const acArr = [];
         Object.values(cities).forEach((data) => {
             const obj = { label: data.fullName, value: data.code };

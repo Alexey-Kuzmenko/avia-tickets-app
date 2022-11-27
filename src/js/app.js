@@ -42,21 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ticketsUi.setTickestStyles(currentTarget);
             const ticketId = currentTarget.dataset.ticketId;
             const ticketObj = locations.getTicketById(ticketId);
-
-            //  ? maybe dropdown should init when inited all app
             dropdownUi.initDropdownMenu();
             favorites.setfavoriteTicket(ticketObj);
         }
     }
 
-    // ! dropdown menu handler
     function onDropdownClick() {
         dropdownUi.renderDropdownMenuItems(favorites._favoriteTickets);
-        console.log(favorites.favoriteTickets);
-
         const dropdownItems = document.querySelectorAll('.dropdown-item-body');
-
-        // ? potential solution
         [...dropdownItems].forEach((dropdownItem) => {
             dropdownItem.addEventListener('click', onDropdownItemClick, false);
         });
@@ -70,8 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const ticketObj = favorites.getfavoriteTicketById(ticketId);
             favorites.removefavoriteTicket(ticketObj);
             const [...ticketsCards] = ticketsUi.getContainer().children;
-            // ! tetsing
-            console.log(ticketsCards);
             const ticketCard = ticketsCards.find((ticket) => ticket.id === ticketId);
             ticketsUi.removeTickestStyles(ticketCard);
         }
@@ -93,15 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         ticketsUi.renderTickest(locations.lastSearch);
-
-        // ? potential solution
         const ticketsCards = document.querySelectorAll('.tickets-card');
         setAddEventListener(ticketsCards);
 
         function setAddEventListener(arrOfNodes) {
             if (!arrOfNodes.length) {
-                console.error('Array of tickets is empty');
-                return;
+                throw new Error('Array of tickets is empty');
             }
 
             [...arrOfNodes].forEach((ticket) => {

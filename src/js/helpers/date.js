@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
 function changeDateFormat(date) {
-    const [year, month, day] = date.split('-');
+    const [year, month] = date.split('-');
     const newDateFormat = `${year}-${month}`;
     return newDateFormat;
 }

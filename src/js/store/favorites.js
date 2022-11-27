@@ -9,14 +9,10 @@ class Favorites {
 
     setfavoriteTicket(ticket) {
         const { id } = ticket;
-        // ? potential solution
         if (this._favoriteTickets.find((ticket) => id === ticket.id)) {
             return;
         }
-
         this._favoriteTickets.push(ticket);
-        // ! testing
-        console.log(this._favoriteTickets.length);
     }
 
     removefavoriteTicket(ticket) {

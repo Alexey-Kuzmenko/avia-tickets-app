@@ -7,10 +7,6 @@ const acInputOptions = {
     data: null,
     maximumItems: 5,
     treshold: 1,
-
-    onSelectItem: ({ label, value }) => {
-        console.log('user selected:', label, value);
-    },
 };
 
 function initAutocompleteInput(input) {

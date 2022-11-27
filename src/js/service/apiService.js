@@ -17,7 +17,7 @@ class Api {
             const response = await axios.get(`${this.url}/countries`);
             return response.data;
         } catch (err) {
-            console.log(err);
+            console.error(err);
             return Promise.reject(err);
         }
     }
@@ -27,7 +27,7 @@ class Api {
             const response = await axios.get(`${this.url}/cities`);
             return response.data;
         } catch (err) {
-            console.log(err);
+            console.error(err);
             return Promise.reject(err);
         }
     }
@@ -39,7 +39,7 @@ class Api {
             });
             return response.data;
         } catch (err) {
-            console.log(err);
+            console.error(err);
             return Promise.reject(err);
         }
     }
@@ -49,7 +49,7 @@ class Api {
             const response = await axios.get(`${this.url}/airlines`);
             return response.data;
         } catch (err) {
-            console.log(err);
+            console.error(err);
             return Promise.reject(err);
         }
     }

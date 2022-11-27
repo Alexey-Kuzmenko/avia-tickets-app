@@ -1,4 +1,4 @@
-import favorites from "../store/favorites";
+import favorites from '../store/favorites';
 
 class DropdownUi {
     constructor(favorites) {
