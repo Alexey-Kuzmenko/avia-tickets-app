@@ -24,6 +24,18 @@ class TicketsUI {
         }
     }
 
+    setTickestStyles(ticket) {
+        ticket.classList.add('border-primary');
+        const addToFavoritesBtn = ticket.querySelector('.add-to-favorites-btn');
+        addToFavoritesBtn.classList.add('add-to-favorites-btn--active');
+    }
+
+    removeTickestStyles(ticket) {
+        ticket.classList.remove('border-primary');
+        const addToFavoritesBtn = ticket.querySelector('.add-to-favorites-btn');
+        addToFavoritesBtn.classList.remove('add-to-favorites-btn--active');
+    }
+
     getContainer() {
         return this.container;
     }
@@ -47,7 +59,7 @@ class TicketsUI {
 
     static ticketTemplate(ticket, currency) {
         return `
-        <div class="card tickets-card" data-ticket-id="${ticket.id}">
+        <div class="card tickets-card" id="${ticket.id}" data-ticket-id="${ticket.id}">
             <img src="${ticket.airline_logo}" class="card-img-top" alt="Airline logo">
             <div class="card-body">
                 <h5 class="card-title text-center">${ticket.airline_name}</h5>
@@ -74,8 +86,8 @@ class TicketsUI {
             <div class="card-footer">
                 <p class="fs-5 fw-bold mb-0">Price: ${currency}${ticket.price}</p>
                 <div class="card-footer-controls d-flex justify-content-between">
-                    <a href="#" class="btn btn-primary text-uppercase">Buy</a>
-                    <a class="btn btn-light add-to-favorites-btn"><i class="bi bi-heart"></i></a>
+                    <button href="#" class="btn btn-primary text-uppercase">Buy</button>
+                    <button class="btn btn-light add-to-favorites-btn"><i class="bi bi-heart"></i></button>
                 </div>
             </div>
         </div>

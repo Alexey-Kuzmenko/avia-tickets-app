@@ -115,6 +115,10 @@ class Locations {
             id: this.ticketId(),
         }));
     }
+
+    getTicketById(id) {
+        return this.lastSearch.find((ticket) => ticket.id === id);
+    }
 }
 
 const locations = new Locations(api, { formatDate, id: id.createID });

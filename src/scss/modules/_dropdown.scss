@@ -1,38 +1,62 @@
 .nav-dropdown-menu {
 
     @include media-breakpoint-up(lg) {
-        min-width: 350px;
+        min-width: 450px;
     }
-
 
     .nav-dropdown-item {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
         min-width: 100%;
 
+        &-logo {
+            width: 50px;
+        }
+
         &-content {
-            @media (max-width: 376.99px) {
+            @media (max-width: 426.99px) {
                 display: flex;
                 flex-flow: column wrap;
                 justify-content: center;
                 column-gap: 5px;
+
+                & > .nav-dropdown-item-date {
+                    display: none;
+                }
             }
+
+            @media (orientation: landscape) {
+                justify-content: space-around;
+            }
+
         }
 
         &-text {
             display: inline;
             padding: 0;
+            margin-bottom: 0;
 
-            &:first-child {
-                margin-bottom: 0;
+            @media (max-width: 375px) {
+                font-size: 0.813rem;
             }
         }
 
         &-remove-btn {
             outline: none;
             border: none;
+        }
+
+        @media (max-width: 319px) {
+            & {
+                padding: 0.25rem 0.625rem;
+
+                > &-logo {
+                    width: 30px;
+                }
+            }
+
         }
     }
 }

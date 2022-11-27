@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('reset', () => {
         ticketsUi.clearContainer();
         alertUi.clearAlertContainer();
+        dropdownUi.clearDropdownMenuContainer();
     });
 
     dropdownMenu.addEventListener('click', onDropdownClick, false);
@@ -36,13 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         formUi.setAcInputData(locations.shortCitiesList);
     }
 
-    function onTicketClick(e) {
-        if (e.target.classList.contains('add-to-favorites-btn') || e.target.classList.contains('bi-heart')) {
-            const addToFavoritesBtn = e.currentTarget.querySelector('.add-to-favorites-btn');
-            addToFavoritesBtn.classList.toggle('add-to-favorites-btn--active');
-            e.currentTarget.classList.toggle('border-primary');
-            const ticketId = e.currentTarget.dataset.ticketId;
-            const ticketObj = locations.lastSearch.find((ticket) => ticket.id === ticketId);
+    function onTicketClick({ target, currentTarget }) {
+        if (target.classList.contains('add-to-favorites-btn') || target.classList.contains('bi-heart')) {
+            ticketsUi.setTickestStyles(currentTarget);
+            const ticketId = currentTarget.dataset.ticketId;
+            const ticketObj = locations.getTicketById(ticketId);
 
             //  ? maybe dropdown should init when inited all app
             dropdownUi.initDropdownMenu();
@@ -68,8 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.classList.contains('btn') || e.target.classList.contains('bi-trash3')) {
             e.currentTarget.remove();
             const ticketId = e.currentTarget.dataset.ticketId;
-            const ticketObj = favorites._favoriteTickets.find((ticket) => ticket.id === ticketId);
+            const ticketObj = favorites.getfavoriteTicketById(ticketId);
             favorites.removefavoriteTicket(ticketObj);
+            const [...ticketsCards] = ticketsUi.getContainer().children;
+            // ! tetsing
+            console.log(ticketsCards);
+            const ticketCard = ticketsCards.find((ticket) => ticket.id === ticketId);
+            ticketsUi.removeTickestStyles(ticketCard);
         }
     }
 
