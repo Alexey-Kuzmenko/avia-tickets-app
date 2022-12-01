@@ -11,7 +11,8 @@
     }
 
     .card-footer,
-    .card-body {
+    .card-body,
+    .card-footer-controls {
         width: 100%;
     }
 
@@ -21,6 +22,43 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+    }
+
+    .card-footer-controls {
+        max-width: 110px;
+
+        @media (max-width: 319px) {
+            margin-top: 10px;
+        }
+
+        .add-to-favorites-btn {
+            transition: background-color 0.3s ease;
+
+            &--active {
+                background-color: $red;
+
+                & > .bi-heart {
+                    color: $white;
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+                &:is(:hover) {
+                    & > i {
+                        transition: color 0.3s ease;
+                        color: $white;
+                    }
+
+                    transition: background-color 0.3s ease;
+                    background-color: $red
+                }
+            }
+        }
+
+        .bi-heart {
+            transition: color 0.3s ease;
+        }
+
     }
 
     @include media-breakpoint-up(lg) {

@@ -16,19 +16,40 @@
 
             <div class="container-xl">
 
-                <nav class="navbar navbar-dark bg-primary">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                     <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                         <a href="#" class="navbar-brand">
                             <i class="bi bi-airplane me-2 d-none d-sm-inline"></i>
                             Avia Tickets
                         </a>
-                        <form class="d-flex" id="currency-select">
-                            <select class="form-select form-select-sm bg-light" id="currency-picker"
-                                aria-label="Currency picker" autocomplete="off">
-                                <option selected="selected" value="USD">&dollar; US Dollar</option>
-                                <option value="EUR">&euro; Euro</option>
-                            </select>
-                        </form> <!-- * #currency-picker -->
+
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav navbar-nav--hidden me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Favorite tickets
+                                    </a>
+
+                                    <ul class="nav-dropdown-menu dropdown-menu dropdown-menu-primary">
+                                    </ul><!-- * dropdown-menu -->
+                                </li>
+                            </ul>
+
+                            <form class="d-flex currency-select" id="currency-select">
+                                <select class="form-select form-select-sm bg-light" id="currency-picker"
+                                    aria-label="Currency picker" autocomplete="off">
+                                    <option selected="selected" value="USD">&dollar; US Dollar</option>
+                                    <option value="EUR">&euro; Euro</option>
+                                </select>
+                            </form> <!-- * #currency-picker -->
+
+                        </div> <!-- * .navbar-collapse -->
                     </div>
                 </nav> <!-- * .navbar -->
 
