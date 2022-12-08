@@ -45,7 +45,7 @@ module.exports = {
         filename: createFileName('[name]', 'js')
     },
     devServer: {
-        port: '9000',
+        port: '3000',
         hot: isDev,
     },
     watchOptions: {
